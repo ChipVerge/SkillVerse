@@ -154,7 +154,7 @@ current_transaction.read_write = 1;
 ```SV
 typedef union packed { // 'packed' for bit-level overlay
   int integer_val;
-  real float_val;
+  shortreal float_val;
   logic [31:0] bit_pattern;
 } data_variant_t;
 
