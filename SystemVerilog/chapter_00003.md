@@ -64,17 +64,19 @@ Time=10 ns: a=5, b=10
 
 ```SV
 module strobe_example;
-  reg [3:0] data;
+  int a;
+
   initial begin
-    data = 0;
-    #5 data = 5;
-    #0; // Force delta cycle to ensure assignments settle
-    $strobe("[Strobe] Time=%0t ns, Data=%0d", $time, data);
-    // Output: "[Strobe] Time=5 ns, Data=5"
+    a = 42;          // blocking: takes effect immediately
+    a <= 65;         // non-blocking: scheduled for end of time step
+    $display("Display says a is %0d", a); // prints 42 (non-blocking not yet settled)
+    $strobe("Strobe says a is %0d", a);   // prints 65 (after non-blocking settles)
+    #10ns;
+    $finish;
   end
 endmodule
 ```
-**Explanation**: Even though `data` is assigned at time 5, `$strobe` ensures that the value printed is the final value of `data` at the end of the time step, after any potential delta delays have resolved. The `#0` delay is added to explicitly trigger a delta cycle and ensure all assignments from the previous time step are fully processed before `$strobe` executes.
+**Explanation**: At the same simulation time step, `a` is first set to `42` via a blocking assignment, then scheduled to update to `65` via a non-blocking assignment (`<=`). `$display` executes immediately and captures the current value `42`, before the non-blocking assignment settles. `$strobe`, however, fires at the very end of the time step, after all non-blocking assignments have resolved, and correctly prints the final stable value `65`.
 
 **Choosing the Right Display Task**:
 
