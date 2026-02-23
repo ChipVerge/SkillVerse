@@ -79,15 +79,7 @@
   - Comparison
   - Exercises
   - Best Practices for Effective IPC
-## 12. [SystemVerilog Interfaces](SystemVerilog/chapter_00012.md)
-  - Introduction
-  - Defining Interfaces
-  - Implementing Interfaces in Modules
-  - Modports
-  - Practical Applications and Exercises to Master Interfaces
-  - Best Practices and Common Pitfalls to Avoid
-  - Conclusion
-## 13. [SystemVerilog Modules](SystemVerilog/chapter_00013.md)
+## 12. [SystemVerilog Modules](SystemVerilog/chapter_00012.md)
   - Introduction
   - Module Definition
   - Ports and Parameters
@@ -95,6 +87,14 @@
   - Testbench Integration
   - Best Practices for SystemVerilog Module Design
   - Exercises to Practice Module Design in SystemVerilog
+## 13. [SystemVerilog Interfaces](SystemVerilog/chapter_00013.md)
+  - Introduction
+  - Defining Interfaces
+  - Implementing Interfaces in Modules
+  - Modports
+  - Practical Applications and Exercises to Master Interfaces
+  - Best Practices and Common Pitfalls to Avoid
+  - Conclusion
 ## 14. [SystemVerilog Randomization](SystemVerilog/chapter_00014.md)
   - Introduction
   - Random Variable Types
