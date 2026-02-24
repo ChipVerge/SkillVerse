@@ -170,7 +170,9 @@ $display("Sum of unique values: %0d", unique_sum);
 
     ```SV
     // Extract bytes 64-127 (upper half) from all elements of 'my_array'
-    logic [63:0][7:0] upper_bytes [8][64][32] = my_array[][][][64:127];
+    foreach (my_array[i, j, k]) begin
+        upper_bytes[i][j][k] = my_array[i][j][k][127:64];
+    end
     ```
 
 2.  **Efficient Condition-Based Searching**: Leverage the `with` clause for highly efficient searches within arrays, especially for complex conditions:
