@@ -275,7 +275,7 @@ Test your knowledge of SystemVerilog data types with these exercises. Solutions 
 
 9. **Initialize a Packed Array with Literal Values**:
    ```SV
-   logic [1:0][3:0] nibble_matrix = '{4'h3, 4'h6, 4'h9, 4'hC};
+   logic [1:0][3:0] nibble_matrix = {4'h3, 4'h6, 4'h9, 4'hC};
    // Solution: Initializes a 2x4 packed array 'nibble_matrix' with hexadecimal nibble values.
    ```
 
