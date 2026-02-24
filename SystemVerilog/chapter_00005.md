@@ -168,24 +168,19 @@ end
 - **Testbench Communication**: Queues are frequently used in verification testbenches for communication between different components, such as passing transaction objects between generators, monitors, and scoreboards.
 
 ```SV
-class transaction; // Example transaction class
-  int data;
-  time timestamp;
-endclass
-
-queue transaction_q; // Queue of transaction objects
+// Simple queue example using integers (no classes)
+int transaction_q[$]; // Queue of transaction IDs
 
 initial begin
-  transaction_q = new(); // Initialize the queue
+  transaction_q.push_back(10); // Add to back
+  transaction_q.push_back(20);
 
-  transaction_q.push_back(new transaction with (.data(10), .timestamp($time))); // Add to back
-  transaction_q.push_back(new transaction with (.data(20), .timestamp($time)));
+  if (transaction_q.size() > 0) begin
+    int first_txn = transaction_q.pop_front(); // Remove from front
+    $display("Dequeued transaction ID: %0d", first_txn);
+  end
 
-  transaction first_txn = transaction_q.pop_front(); // Remove from front
-  if (first_txn != null)
-    $display("Dequeued transaction data: %0d, time: %0t", first_txn.data, first_txn.timestamp);
-
-  transaction_q.push_front(new transaction with (.data(5), .timestamp($time))); // Add to front
+  transaction_q.push_front(5); // Add to front
   $display("Queue size: %0d", transaction_q.size()); // Check queue size
 end
 ```
