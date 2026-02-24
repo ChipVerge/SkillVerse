@@ -2,14 +2,14 @@
 
 ## Introduction to SystemVerilog Arrays
 
-Arrays are fundamental data structures in SystemVerilog, designed to efficiently manage collections of data elements. SystemVerilog offers a rich array landscape, providing various array types tailored to diverse hardware modeling and verification needs. Understanding these types is crucial for effective SystemVerilog programming.  The primary array categories in SystemVerilog include:
+Arrays are fundamental data structures in SystemVerilog, designed to efficiently manage collections of data elements. SystemVerilog offers a rich array landscape, providing various array types tailored to diverse hardware modeling and verification needs. Understanding these types is crucial for effective SystemVerilog programming. The primary array categories in SystemVerilog include:
 
-- **Packed Arrays**:  Think of these as dense, contiguous blocks of bits, optimized for hardware registers and bit-level manipulations.
+- **Packed Arrays**: Think of these as dense, contiguous blocks of bits, optimized for hardware registers and bit-level manipulations.
 - **Unpacked Arrays**: These are more like traditional software arrays, holding individual elements and ideal for memory modeling and general-purpose data storage.
 - **Fixed-Size Arrays**: Arrays whose size is set at compile time, offering performance and built-in methods for manipulation.
-- **Dynamic Arrays**:  Arrays that can be resized during simulation runtime, providing flexibility for variable-size data.
-- **Associative Arrays**:  Powerful key-value lookup structures, perfect for sparse memories or configuration tables where data is accessed by name or ID.
-- **Queues**:  Specialized ordered lists (FIFO-like), designed for efficient data insertion and removal at both ends, commonly used in testbenches and communication channels.
+- **Dynamic Arrays**: Arrays that can be resized during simulation runtime, providing flexibility for variable-size data.
+- **Associative Arrays**: Powerful key-value lookup structures, perfect for sparse memories or configuration tables where data is accessed by name or ID.
+- **Queues**: Specialized ordered lists (FIFO-like), designed for efficient data insertion and removal at both ends, commonly used in testbenches and communication channels.
 
 ## Packed vs. Unpacked Arrays: Memory Layout and Usage
 
@@ -17,7 +17,7 @@ The distinction between packed and unpacked arrays is fundamental in SystemVeril
 
 ### Packed Arrays: Bit-Level Efficiency
 
-- **Contiguous Bit Storage**: Packed arrays are stored as a single, unbroken sequence of bits in memory.  Imagine them as a hardware register or a contiguous memory location viewed as a bit stream.
+- **Contiguous Bit Storage**: Packed arrays are stored as a single, unbroken sequence of bits in memory. Imagine them as a hardware register or a contiguous memory location viewed as a bit stream.
 - **Hardware Modeling Focus**: They are primarily used for modeling hardware structures where bit-level access and operations are frequent, such as registers, memory interfaces, and data buses.
 - **Multi-Dimensionality**: Packed arrays can be multi-dimensional, allowing you to represent matrices or arrays of registers efficiently. Dimensions are specified **before** the variable name.
 
@@ -28,6 +28,7 @@ register_file = 48'h1234_5678_9ABC_DEF0; // Initialize as a contiguous bit vecto
 logic [7:0] byte_slice;
 byte_slice = register_file[1][15:8]; // Extract a byte slice from the 2D packed array
 ```
+
 **Explanation**: `register_file` is a 2D packed array representing a small register file. The initialization and byte slice extraction highlight the bit-contiguous nature and suitability for hardware-like operations.
 
 ### Unpacked Arrays: Element-Based Storage
@@ -42,6 +43,7 @@ transaction_data = '{default:0}; // Initialize all elements to 0
 
 transaction_data[512] = 999;    // Access and modify individual elements
 ```
+
 **Explanation**: `transaction_data` is an unpacked array designed to hold a large number of integer values, typical for storing testbench data. Element access is element-wise, not bit-level.
 
 **Key Difference**: Packed arrays are for bit-level hardware modeling; unpacked arrays are for element-level data storage, especially in verification.
@@ -65,21 +67,21 @@ $display("Sum of scores: %0d", scores.sum());    // Output: Sum of scores: 440
 
 ### Built-in Methods for Fixed-Size Arrays
 
-| Method          | Description                                     | Example                                    |
-|-----------------|-------------------------------------------------|---------------------------------------------|
-| **`.size()`**    | Returns the number of elements in the array      | `int array_size = scores.size();`          |
-| **`.sort()`**    | Sorts array elements in ascending order (in-place) | `scores.sort();`                             |
-| **`.rsort()`**   | Sorts array elements in descending order (in-place)| `scores.rsort();`                            |
-| **`.reverse()`** | Reverses the order of elements (in-place)       | `scores.reverse();`                          |
-| **`.sum()`**     | Calculates and returns the sum of all elements   | `int total_score = scores.sum();`          |
-| **`.min()`**     | Returns the minimum element value               | `int min_val = scores.min();`              |
-| **`.max()`**     | Returns the maximum element value               | `int max_val = scores.max();`              |
-| **`.unique()`**  | Removes duplicate elements, returns unique array | `int unique_scores[$] = scores.unique();` |
-| **`.find()`**    | Returns a queue of indices where condition is true| `int indices[$] = scores.find(x) with (x > 90);`|
-| **`.find_index()`**| Returns a queue of indices where condition is true| `int indices[$] = scores.find_index(x) with (x > 90);`|
-| **`.find_first()`**| Returns the first element where condition is true| `int first_score = scores.find_first(x) with (x > 90);`|
-| **`.find_last()`** | Returns the last element where condition is true | `int last_score = scores.find_last(x) with (x > 90);` |
-| **`.reduce()`**  | Applies reduction operation (sum, product, etc.)| `int product = scores.reduce(*);`          |
+| Method              | Description                                         | Example                                                 |
+| ------------------- | --------------------------------------------------- | ------------------------------------------------------- |
+| **`.size()`**       | Returns the number of elements in the array         | `int array_size = scores.size();`                       |
+| **`.sort()`**       | Sorts array elements in ascending order (in-place)  | `scores.sort();`                                        |
+| **`.rsort()`**      | Sorts array elements in descending order (in-place) | `scores.rsort();`                                       |
+| **`.reverse()`**    | Reverses the order of elements (in-place)           | `scores.reverse();`                                     |
+| **`.sum()`**        | Calculates and returns the sum of all elements      | `int total_score = scores.sum();`                       |
+| **`.min()`**        | Returns the minimum element value                   | `int min_val = scores.min();`                           |
+| **`.max()`**        | Returns the maximum element value                   | `int max_val = scores.max();`                           |
+| **`.unique()`**     | Removes duplicate elements, returns unique array    | `int unique_scores[$] = scores.unique();`               |
+| **`.find()`**       | Returns a queue of indices where condition is true  | `int indices[$] = scores.find(x) with (x > 90);`        |
+| **`.find_index()`** | Returns a queue of indices where condition is true  | `int indices[$] = scores.find_index(x) with (x > 90);`  |
+| **`.find_first()`** | Returns the first element where condition is true   | `int first_score = scores.find_first(x) with (x > 90);` |
+| **`.find_last()`**  | Returns the last element where condition is true    | `int last_score = scores.find_last(x) with (x > 90);`   |
+| **`.reduce()`**     | Applies reduction operation (sum, product, etc.)    | `int product = scores.reduce(*);`                       |
 
 ## Dynamic Arrays: Runtime Resizable Flexibility
 
@@ -106,18 +108,18 @@ end
 
 ### Methods for Dynamic Arrays
 
-| Method          | Description                                      | Example                                       |
-|-----------------|--------------------------------------------------|------------------------------------------------|
-| **`.size()`**    | Returns the current number of allocated elements | `int current_size = packet_buffer.size();`   |
-| **`.new[size]`**| Allocates memory for `size` elements             | `packet_buffer = new[50];`                    |
-| **`.delete()`**  | Deallocates all memory, array becomes empty      | `packet_buffer.delete();`                     |
-| **`.sort()`**    | Sorts the elements in ascending order (in-place) | `packet_buffer.sort();`                       |
-| **`.rsort()`**   | Sorts elements in descending order (in-place)    | `packet_buffer.rsort();`                      |
-| **`.reverse()`** | Reverses the order of elements (in-place)        | `packet_buffer.reverse();`                    |
-| **`.sum()`**     | Calculates the sum of all elements              | `int total = packet_buffer.sum();`            |
+| Method           | Description                                      | Example                                        |
+| ---------------- | ------------------------------------------------ | ---------------------------------------------- |
+| **`.size()`**    | Returns the current number of allocated elements | `int current_size = packet_buffer.size();`     |
+| **`.new[size]`** | Allocates memory for `size` elements             | `packet_buffer = new[50];`                     |
+| **`.delete()`**  | Deallocates all memory, array becomes empty      | `packet_buffer.delete();`                      |
+| **`.sort()`**    | Sorts the elements in ascending order (in-place) | `packet_buffer.sort();`                        |
+| **`.rsort()`**   | Sorts elements in descending order (in-place)    | `packet_buffer.rsort();`                       |
+| **`.reverse()`** | Reverses the order of elements (in-place)        | `packet_buffer.reverse();`                     |
+| **`.sum()`**     | Calculates the sum of all elements               | `int total = packet_buffer.sum();`             |
 | **`.min()`**     | Returns the minimum element value                | `int min_val = packet_buffer.min();`           |
 | **`.max()`**     | Returns the maximum element value                | `int max_val = packet_buffer.max();`           |
-| **`.unique()`**  | Returns a queue of unique elements              | `int unique_vals[$] = packet_buffer.unique();`|
+| **`.unique()`**  | Returns a queue of unique elements               | `int unique_vals[$] = packet_buffer.unique();` |
 
 ## Associative Arrays: Flexible Key-Based Lookup
 
@@ -150,16 +152,16 @@ end
 
 ### Methods for Associative Arrays
 
-| Method             | Description                                        | Example                                        |
-|--------------------|----------------------------------------------------|-------------------------------------------------|
-| **`.num()`**      | Returns the number of entries in the array         | `int entry_count = error_messages.num();`      |
-| **`.delete()`**    | Removes all entries from the associative array       | `error_messages.delete();`                      |
-| **`.delete(key)`**| Removes the entry associated with `key`            | `error_messages.delete("W201");`               |
-| **`.exists(key)`**| Checks if an entry with `key` exists               | `if (error_messages.exists("E100")) ...`      |
-| **`.first(ref key)`**| Assigns the first key in the array to `key` (iteration)| `string first_key; error_messages.first(first_key);`|
-| **`.next(ref key)`** | Assigns the key after the current `key` (iteration)| `string next_key; error_messages.next(next_key);`  |
-| **`.prev(ref key)`** | Assigns the key before the current `key` (iteration)| `string prev_key; error_messages.prev(prev_key);`  |
-| **`.last(ref key)`** | Assigns the last key in the array to `key` (iteration) | `string last_key; error_messages.last(last_key);`|
+| Method                | Description                                             | Example                                              |
+| --------------------- | ------------------------------------------------------- | ---------------------------------------------------- |
+| **`.num()`**          | Returns the number of entries in the array              | `int entry_count = error_messages.num();`            |
+| **`.delete()`**       | Removes all entries from the associative array          | `error_messages.delete();`                           |
+| **`.delete(key)`**    | Removes the entry associated with `key`                 | `error_messages.delete("W201");`                     |
+| **`.exists(key)`**    | Checks if an entry with `key` exists                    | `if (error_messages.exists("E100")) ...`             |
+| **`.first(ref key)`** | Assigns the first key in the array to `key` (iteration) | `string first_key; error_messages.first(first_key);` |
+| **`.next(ref key)`**  | Assigns the key after the current `key` (iteration)     | `string next_key; error_messages.next(next_key);`    |
+| **`.prev(ref key)`**  | Assigns the key before the current `key` (iteration)    | `string prev_key; error_messages.prev(prev_key);`    |
+| **`.last(ref key)`**  | Assigns the last key in the array to `key` (iteration)  | `string last_key; error_messages.last(last_key);`    |
 
 ## Queues: Ordered Collections for Communication
 
@@ -167,8 +169,13 @@ end
 - **Dynamic Sizing**: Queues automatically resize as elements are added or removed, making them convenient for managing data streams of varying lengths.
 - **Testbench Communication**: Queues are frequently used in verification testbenches for communication between different components, such as passing transaction objects between generators, monitors, and scoreboards.
 
+<figure>
+  <img src="queue_explanation.svg" alt="Queue functions illustration" />
+  <figcaption>Figure — common queue operations and behavior.</figcaption>
+</figure>
+
 ```SV
-// Simple queue example using integers (no classes)
+// Simple queue example using integers
 int transaction_q[$]; // Queue of transaction IDs
 
 initial begin
@@ -187,30 +194,32 @@ end
 
 ### Methods for Queues
 
-| Method              | Description                                         | Example                                         |
-|----------------------|-----------------------------------------------------|-------------------------------------------------|
-| **`.size()`**        | Returns the number of elements in the queue          | `int q_size = transaction_q.size();`           |
-| **`.insert(index, item)`**| Inserts `item` at the specified `index`            | `transaction_q.insert(1, new_txn);`           |
-| **`.delete()`**      | Removes all elements from the queue                 | `transaction_q.delete();`                      |
-| **`.delete(index)`** | Removes the element at the specified `index`         | `transaction_q.delete(0);`                     |
-| **`.pop_front()`**   | Removes and returns the element from the front of queue| `transaction first_item = transaction_q.pop_front();`|
-| **`.pop_back()`**    | Removes and returns the element from the back of queue | `transaction last_item = transaction_q.pop_back();` |
-| **`.push_front(item)`**| Adds `item` to the front of the queue               | `transaction_q.push_front(new_txn);`          |
-| **`.push_back(item)`** | Adds `item` to the back of the queue                | `transaction_q.push_back(new_txn);`           |
-| **`.sort()`**        | Sorts the elements in the queue (in-place)          | `transaction_q.sort();`                        |
-| **`.reverse()`**     | Reverses the order of elements in the queue (in-place)| `transaction_q.reverse();`                     |
+| Method                     | Description                                             | Example                                               |
+| -------------------------- | ------------------------------------------------------- | ----------------------------------------------------- |
+| **`.size()`**              | Returns the number of elements in the queue             | `int q_size = transaction_q.size();`                  |
+| **`.insert(index, item)`** | Inserts `item` at the specified `index`                 | `transaction_q.insert(1, new_txn);`                   |
+| **`.delete()`**            | Removes all elements from the queue                     | `transaction_q.delete();`                             |
+| **`.delete(index)`**       | Removes the element at the specified `index`            | `transaction_q.delete(0);`                            |
+| **`.pop_front()`**         | Removes and returns the element from the front of queue | `transaction first_item = transaction_q.pop_front();` |
+| **`.pop_back()`**          | Removes and returns the element from the back of queue  | `transaction last_item = transaction_q.pop_back();`   |
+| **`.push_front(item)`**    | Adds `item` to the front of the queue                   | `transaction_q.push_front(new_txn);`                  |
+| **`.push_back(item)`**     | Adds `item` to the back of the queue                    | `transaction_q.push_back(new_txn);`                   |
+| **`.sort()`**              | Sorts the elements in the queue (in-place)              | `transaction_q.sort();`                               |
+| **`.reverse()`**           | Reverses the order of elements in the queue (in-place)  | `transaction_q.reverse();`                            |
 
 ## Exercises to Practice Array Concepts
 
 Test your understanding of SystemVerilog arrays with these exercises. Solutions are provided to help you check your work.
 
 1. **Packed Array Initialization**: Declare a 12-bit packed array named `config_bits` and initialize it with the hexadecimal value `0xA3C`.
+
    ```SV
    logic [11:0] config_bits = 12'hA3C;
    // Solution: Declares a 12-bit packed array and initializes it.
    ```
 
 2. **Unpacked Array of Strings**: Create an unpacked array named `name_list` to hold 4 strings: "Alice", "Bob", "Charlie", and "Dana". Then, use a `foreach` loop to print each name.
+
    ```SV
    string name_list [4] = '{"Alice", "Bob", "Charlie", "Dana"};
    foreach (name_list[i]) $display("Name: %s", name_list[i]);
@@ -218,6 +227,7 @@ Test your understanding of SystemVerilog arrays with these exercises. Solutions 
    ```
 
 3. **Fixed-Size Array Summation**: Declare a fixed-size array of 5 integers, initialize it with the values `{10, 20, 30, 40, 50}`, and use the `.sum()` method to calculate and display their sum.
+
    ```SV
    int value_array [5] = '{10, 20, 30, 40, 50};
    $display("Sum of array elements: %0d", value_array.sum());
@@ -225,6 +235,7 @@ Test your understanding of SystemVerilog arrays with these exercises. Solutions 
    ```
 
 4. **Dynamic Array with Even Numbers**: Create an empty dynamic array named `even_numbers`. Allocate space for 8 integers using `new[]`. Then, use a `foreach` loop to fill the array with the first 8 even numbers (0, 2, 4, ..., 14).
+
    ```SV
    int even_numbers [];
    even_numbers = new[8];
@@ -233,6 +244,7 @@ Test your understanding of SystemVerilog arrays with these exercises. Solutions 
    ```
 
 5. **Associative Array for Age Lookup**: Create an associative array named `age_map` that uses strings as keys and integers as values. Store the ages of three people: "Alice" (30), "Bob" (25), and "Charlie" (35). Then, check if an entry for "John" exists in the array and display "John not found!" if it doesn't.
+
    ```SV
    int age_map [string];
    age_map["Alice"] = 30;
@@ -253,4 +265,3 @@ Test your understanding of SystemVerilog arrays with these exercises. Solutions 
 By mastering SystemVerilog arrays and their various types, you equip yourself with powerful tools for managing data in both your hardware designs and verification environments. Experiment with these exercises and explore the extensive capabilities of SystemVerilog arrays to enhance your digital design and verification skills.
 
 ##### Copyright (c) 2026 squared-studio
-
