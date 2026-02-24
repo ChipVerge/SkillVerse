@@ -31,7 +31,7 @@ logic [127:0][7:0] my_array [8][64][32];
 | **Full Element**     | `my_array[2][5][17]`               | Retrieves the entire 128-byte element located at unpacked indices [2][5][17]. |
 | **Single Byte**      | `my_array[1][3][20][byte_index]`  | Accesses a specific byte within an element. `byte_index` (0-127) selects a byte. |
 | **Single Bit**       | `my_array[0][10][5][byte_index][bit_index]` | Accesses a specific bit. `byte_index` (0-127) and `bit_index` (0-7) are used. |
-| **Byte Range (Slice)** | `my_array[4][25][10][0:15]`        | Extracts a contiguous slice of bytes (bytes 0 through 15) from an element.  |
+| **Byte Range (Slice)** | `my_array[4][25][10][15:0]`        | Extracts a contiguous slice of bytes (bytes 0 through 15) from an element.  |
 | **Bit Slice (Nibble)** | `my_array[7][63][31][127][3:0]`     | Extracts a bit slice (lower nibble, bits 3 down to 0) from a specific byte.  |
 
 ### Efficient Iteration with `foreach`
