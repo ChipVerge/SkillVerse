@@ -23,7 +23,7 @@ The distinction between packed and unpacked arrays is fundamental in SystemVeril
 
 ```SV
 logic [2:0][15:0] register_file;  // 3x16-bit register file (48 bits total)
-register_file = 48'h1234_5678_9ABC_DEF0; // Initialize as a contiguous bit vector
+register_file = 64'h1234_5678_9ABC_DEF0; // Initialize as a contiguous bit vector
 
 logic [7:0] byte_slice;
 byte_slice = register_file[1][15:8]; // Extract a byte slice from the 2D packed array
