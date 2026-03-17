@@ -143,7 +143,7 @@ This chapter introduces the crucial steps of synthesis and implementation in the
 * **Synthesis tool documentation (e.g., Xilinx Vivado Synthesis, Intel Quartus Prime Synthesis):**
 
     * **Search Query Suggestion:** Search for "Vivado synthesis tutorial," "Vivado synthesis user guide," "Quartus synthesis tutorial," "Quartus synthesis user guide," "Xilinx synthesis constraints," "Intel synthesis constraints."
-    * **Vendor Websites:** Go to the documentation sections of Xilinx ([Xilinx - Adaptable. Intelligent.](https://www.google.com/url?sa=E&source=gmail&q=https://www.google.com/url?sa=E%26source=gmail%26q=https://www.xilinx.com/)) and Intel FPGA ([Intel FPGA Programmable Solutions](https://www.google.com/url?sa=E&source=gmail&q=https://www.google.com/url?sa=E%26source=gmail%26q=https://www.intel.com/content/www/us/en/products/programmable.html)).
+    * **Vendor Websites:** Go to the documentation sections of Xilinx ([Xilinx - Adaptable. Intelligent.](https://www.xilinx.com/)) and Intel FPGA ([Intel FPGA Programmable Solutions](https://www.intel.com/content/www/us/en/products/programmable.html)).
     * **Synthesis Tool Specifics:**  Focus on documentation specific to the synthesis tool you are using (Vivado Synthesis for Xilinx FPGAs, Quartus Prime Synthesis for Intel FPGAs).
     * **Key Documentation Areas:**
         * Synthesis flow overview.
@@ -169,6 +169,14 @@ This chapter introduces the crucial steps of synthesis and implementation in the
         * DSP blocks.
         * Clocking resources.
     * **Understanding FPGA Resources:**  Understanding the FPGA architecture helps in understanding how RTL designs are mapped onto the FPGA fabric during implementation and how synthesis and implementation tools utilize these resources.
+
+* **Common Reasons Synthesis Results Differ from Expectations:**
+
+    * **Incomplete Constraints:** If clocks, generated clocks, input delays, or output delays are missing, synthesis may optimize for the wrong problem.
+    * **RTL That Simulates but Synthesizes Differently:** Ambiguous coding styles, incomplete combinational assignments, or unsupported constructs can create simulation/synthesis mismatches.
+    * **Resource Inference Choices:** The tool may map arithmetic, memories, or shift structures into LUTs, DSPs, or BRAMs depending on coding style and constraints.
+    * **Timing Depends on Physical Effects:** A netlist that looks simple may still fail timing after implementation because routing delay, fanout, congestion, and clock skew matter.
+    * **Optimization is Goal-Driven:** Aggressive frequency targets may increase area, and area-focused settings may reduce timing margin. There is rarely a single best synthesis result.
 
 ## Exercises
 

@@ -10,12 +10,12 @@ This chapter provides an introduction to several advanced and specialized topics
         - **Environmental Concerns:**  Energy efficiency is increasingly important for environmental sustainability.
     *   **Clock Gating:**
         - **Concept:**  Disabling the clock signal to inactive parts of the circuit when they are not needed, preventing unnecessary switching activity and dynamic power consumption.
-        - **Implementation:**  Adding clock gating logic (typically AND gates or multiplexers) to selectively enable or disable clock signals to registers and sequential logic based on activity conditions.
+        - **Implementation:**  In ASICs, clock gating is typically implemented with dedicated integrated clock-gating (ICG) cells. In FPGAs, designers usually prefer clock-enable signals or vendor-recommended clock-control resources rather than creating gated clocks in general logic.
         - **Types:**  Fine-grained clock gating (gating clocks to individual registers or small blocks), coarse-grained clock gating (gating clocks to larger functional units).
-        - **Considerations:**  Careful analysis of circuit activity is needed to identify effective clock gating opportunities. Clock gating logic itself introduces some overhead (area and delay).
+        - **Considerations:**  Careful analysis of circuit activity is needed to identify effective clock gating opportunities. Clock gating logic itself introduces some overhead, and incorrect gating can create clock skew, glitches, or verification complexity.
     *   **Power Gating (Power Domain Isolation):**
         - **Concept:**  Completely turning off the power supply to inactive blocks of the circuit to eliminate both dynamic and static (leakage) power consumption.
-        - **Implementation:**  Using power switches (transistors) to disconnect power supply rails to specific power domains.  Requires careful management of power domains and isolation of signals between active and power-gated domains.
+        - **Implementation:**  Using power switches (transistors) to disconnect power supply rails to specific power domains.  Requires careful management of power domains, isolation of signals between active and power-gated domains, and often state-retention strategies for important registers.
         - **Types:**  Fine-grained power gating (power gating smaller blocks), coarse-grained power gating (power gating larger functional units or entire subsystems).
         - **Considerations:**  Power gating introduces latency for power-up and power-down sequences. Requires careful design of power management controllers and power domain interfaces. Signal isolation techniques (level shifters, isolation cells) are needed to prevent leakage and ensure correct behavior at domain boundaries.
     *   **Operand Isolation (Input Gating):**
@@ -40,7 +40,7 @@ This chapter provides an introduction to several advanced and specialized topics
         - **Design Tools and EDA Support:**  EDA tool support for asynchronous design is less mature compared to synchronous design.
         - **Metastability:**  Asynchronous interfaces and arbiters need to be carefully designed to handle metastability issues (when a flip-flop output becomes temporarily unstable due to near-simultaneous input changes).
     *   **Handshaking Protocols:**  Asynchronous circuits rely on handshaking protocols (e.g., request/acknowledge) to synchronize communication between modules.
-    *   **Applications of Asynchronous Design:**  Niche applications where low power or high speed are critical and complexity is manageable. Examples:  Low-power sensor interfaces, specialized communication circuits, بعض high-speed digital signal processing blocks.
+    *   **Applications of Asynchronous Design:**  Niche applications where low power or high speed are critical and complexity is manageable. Examples:  Low-power sensor interfaces, specialized communication circuits, and some high-speed digital signal processing blocks.
 
 *   **Design for Testability (DFT) Basics (Scan Insertion, BIST):**
     *   **Importance of DFT:**
@@ -121,7 +121,7 @@ This chapter provides an introduction to several advanced and specialized topics
     *   **IEEE Xplore ([IEEE Xplore - Discover technical literature](https://ieeexplore.ieee.org/))** - A major resource for accessing research papers in VLSI design, verification, and related fields.
     *   **Relevant Journals:** *IEEE Journal of Solid-State Circuits (JSSC)*, *IEEE Transactions on Very Large Scale Integration (VLSI) Systems*, *IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)*.
     *   **Relevant Conferences:** *IEEE International Solid-State Circuits Conference (ISSCC)*, *Design Automation Conference (DAC)*, *International Conference on Computer-Aided Design (ICCAD)*, *Design, Automation & Test in Europe (DATE)*.
-    *   **Explore Recent Publications:**  Search for recent papers in these journals and conference proceedings related to the advanced topics in This chapter. Focus on survey papers, tutorial papers, and papers describing novel techniques or methodologies.
+    *   **Explore Recent Publications:**  Search for recent papers in these journals and conference proceedings related to the advanced topics in this module. Focus on survey papers, tutorial papers, and papers describing novel techniques or methodologies.
 
 *   **Specialized books on advanced RTL design and verification topics:**
     *   **Low Power Design:** "Practical Low Power Digital VLSI Design" by Gary Yeap, "Low Power Design Methodologies" edited by Jan M. Rabaey and Massoud Pedram.
@@ -156,8 +156,8 @@ This chapter provides an introduction to several advanced and specialized topics
 
 *   **Explore basic DFT concepts for a small module:**
     *   **Choose a Small RTL Module:** Select a small sequential RTL module (e.g., a simple FSM, a shift register).
-    *   **DFT Insertion (Conceptual):**  Conceptually think about how you would apply scan insertion to This chapter. Identify the flip-flops and imagine how you would replace them with scan flip-flops and connect them into a scan chain. (Note: actual tool-based scan insertion is complex and tool-dependent, this exercise is more conceptual).
-    *   **BIST Exploration (Conceptual):**  Think about how you might implement BIST for This chapter. Consider what type of test pattern generator (e.g., LFSR) and output response analyzer you might use.  Sketch a block diagram showing how you would integrate BIST components into the design.
+    *   **DFT Insertion (Conceptual):**  Conceptually think about how you would apply scan insertion to the chosen module. Identify the flip-flops and imagine how you would replace them with scan flip-flops and connect them into a scan chain. (Note: actual tool-based scan insertion is complex and tool-dependent, this exercise is more conceptual).
+    *   **BIST Exploration (Conceptual):**  Think about how you might implement BIST for the chosen module. Consider what type of test pattern generator (e.g., LFSR) and output response analyzer you might use.  Sketch a block diagram showing how you would integrate BIST components into the design.
     *   **Research DFT Tools and Flows (Optional):**  If you have access to EDA tools with DFT capabilities, you can explore the tool documentation and tutorials to learn about automated scan insertion and BIST insertion flows.  You could try to run a basic DFT insertion flow on your small module using the tool (if tools and licenses are available).
     *   **Report:**  Summarize your exploration of DFT concepts and your conceptual design for scan insertion and/or BIST for the chosen module. Discuss the benefits and overheads of DFT.
 

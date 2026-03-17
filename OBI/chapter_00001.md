@@ -2,112 +2,160 @@
 
 ## Description
 
-The Open Bus Interface (OBI) is a simple and efficient bus protocol designed for communication between master and slave devices in embedded systems. It is open, royalty-free, and widely adopted due to its straightforward implementation and minimal overhead.
+The Open Bus Interface (OBI) is a lightweight bus protocol used to connect masters and slaves in embedded and SoC designs. It is designed to be easy to implement in RTL while still supporting practical features such as reads, writes, wait states, and byte enables.
 
-### Key Features
+At its core, OBI separates a transaction into two parts:
 
-- **Simple Handshake Mechanism:** Request-grant protocol ensures synchronized communication
-- **Flexible Data Width:** Supports configurable address and data bus widths
-- **Byte-Level Access:** Byte enable signals allow granular write operations
-- **Low Latency:** Minimal protocol overhead enables real-time applications
-- **Scalable:** Suitable for various system architectures and complexities
+1. **Request acceptance** using `req` and `gnt`
+2. **Transaction completion** using `rvalid` and, for reads, `rdata`
 
-### Protocol Overview
+That split makes OBI simple to reason about:
 
-The OBI protocol operates on a request-grant-response basis:
-1. **Request Phase:** Master asserts request (req) with address and control signals
-2. **Grant Phase:** Slave responds with grant (gnt) when ready to accept the transaction
-3. **Response Phase:** Slave completes the transaction by asserting read valid (rvalid)
+- the master asks for a transfer,
+- the slave accepts it when ready,
+- the slave later returns the completion.
 
-Both read and write operations follow this three-phase handshake, ensuring data integrity and proper synchronization between master and slave devices.
+This chapter focuses on the common minimal OBI-style interface shown in the waveform below.
+
+### Why OBI is useful
+
+- **Simple handshake:** easy to implement and verify
+- **Low overhead:** good fit for small and medium interconnects
+- **Configurable widths:** address and data widths are implementation-defined
+- **Byte enables:** supports partial-word writes
+- **Latency tolerant:** the slave can delay either acceptance or completion
+
+## Protocol Overview
+
+An OBI transfer is considered **accepted** in the cycle where both `req` and `gnt` are high.
+
+- `req` is driven by the master
+- `gnt` is driven by the slave
+- `rvalid` indicates that the slave is returning the response
+- `rdata` is meaningful only for read responses
+
+In this simplified interface, the protocol is typically used with **one outstanding transaction at a time**. That means the master waits for `rvalid` before starting the next transfer.
 
 ## Signals
 
 ### Clock and Reset
 
-- **clk:** System clock signal (all signals are sampled on the rising edge)
-- **arst_n:** Asynchronous reset, active low (resets the interface to idle state)
+- **`clk`**: system clock; interface signals are sampled on the rising edge
+- **`arst_n`**: asynchronous active-low reset
 
 ### Request Channel (Master to Slave)
 
-- **req:** Request signal (1 = transaction requested, 0 = no transaction)
-- **addr:** Address bus (specifies the target address for read/write operation)
-- **we:** Write enable signal (1 = write operation, 0 = read operation)
-- **wdata:** Write data bus (valid only when we = 1)
-- **be:** Byte enable signals (indicates which bytes of wdata are valid)
+- **`req`**: request valid from the master
+- **`addr`**: transfer address
+- **`we`**: write enable; `1` for write, `0` for read
+- **`wdata`**: write data; valid for write transactions
+- **`be`**: byte enable mask for partial writes
 
-### Response Channel (Slave to Master)
+### Response / Handshake Channel (Slave to Master)
 
-- **gnt:** Grant signal (1 = slave accepts the request, 0 = slave is busy)
-- **rvalid:** Read valid signal (1 = response data is valid)
-- **rdata:** Read data bus (valid data when rvalid = 1)
+- **`gnt`**: grant; indicates the slave accepts the request in this cycle
+- **`rvalid`**: response valid; indicates the transaction has completed
+- **`rdata`**: read data; valid only when `rvalid = 1` for a read response
+
+## Transfer Rules
+
+The following rules are the most important ones to remember:
+
+1. The master asserts `req` when it has a valid request.
+2. While waiting for `gnt`, the master must keep request signals stable.
+3. A request is accepted only in a cycle where `req && gnt` is true.
+4. The response may come later, indicated by `rvalid`.
+5. For writes, `rvalid` is a completion acknowledgement; `rdata` is ignored.
+6. For reads, the master samples `rdata` when `rvalid` is asserted.
 
 ## Waveform
 
 ![Waveform](waveform.svg)
 
+### How to read the waveform
+
+- The master raises `req` together with address and control information.
+- If the slave is not ready, `gnt` stays low and the request must remain unchanged.
+- When `gnt` goes high, the request is accepted on that rising edge.
+- Some cycles later, the slave asserts `rvalid` to finish the transfer.
+- If the transfer was a read, `rdata` is valid in the `rvalid` cycle.
+
 ## Operations
 
 ### Reset
 
-When the asynchronous reset signal (arst_n) is asserted low, all interface signals must be reset to their default states:
+When `arst_n` is low, the interface returns to its idle state.
 
-**Master Requirements:**
-- Set req = 0 (no active request)
-- Address, we, wdata, and be signals can be in any state (don't care)
+**Master side:**
 
-**Slave Requirements:**
-- Set gnt = 0 (not ready to accept requests)
-- Set rvalid = 0 (no valid response)
-- rdata can be in any state (don't care)
+- `req = 0`
+- `addr`, `we`, `wdata`, and `be` are don't-care unless the design specifies otherwise
 
-The interface must remain in reset state until arst_n is deasserted high. Normal operation can begin on the first rising clock edge after arst_n is released.
+**Slave side:**
+
+- `gnt = 0`
+- `rvalid = 0`
+- `rdata` is don't-care unless the design specifies otherwise
+
+After reset is released, transfers can begin on a subsequent rising edge of `clk`.
 
 ### Read Operation
 
-The master initiates a read operation by:
-1. Asserting req = 1
-2. Driving the target address on addr
-3. Setting we = 0 to indicate a read
-4. Optionally setting be to indicate which bytes are needed (implementation-dependent)
+For a read transfer, the master:
 
-**Timing Requirements:**
-- All request signals (req, addr, we) must remain stable until gnt is asserted
-- Once gnt = 1, the slave has accepted the request
-- The master must wait for rvalid before issuing the next request (no pipelining)
-- The request and grant phases are decoupled from the response phase
+1. Drives the target address on `addr`
+2. Sets `we = 0`
+3. Asserts `req = 1`
+4. Keeps the request stable until the slave asserts `gnt`
 
-**Response Phase:**
-- The slave completes the read by asserting rvalid = 1
-- When rvalid = 1, valid read data is available on rdata
-- The master must sample rdata on the rising clock edge when rvalid = 1
-- Responses are always returned in order; only one request can be outstanding at a time
+**Acceptance phase:**
+
+- The slave may immediately assert `gnt`, or it may insert wait states.
+- The read request is accepted on the cycle where `req && gnt` is true.
+
+**Completion phase:**
+
+- At a later cycle, the slave asserts `rvalid = 1`.
+- In that same cycle, `rdata` contains valid read data.
+- The master samples `rdata` on the rising edge when `rvalid = 1`.
 
 ### Write Operation
 
-The master initiates a write operation by:
-1. Asserting req = 1
-2. Driving the target address on addr
-3. Setting we = 1 to indicate a write
-4. Driving the write data on wdata
-5. Setting be to indicate which bytes should be written
+For a write transfer, the master:
 
-**Timing Requirements:**
-- All request signals (req, addr, we, wdata, be) must remain stable until gnt is asserted
-- Once gnt = 1, the slave has accepted the write request and captured the data
-- The master must wait for rvalid before issuing the next request (no pipelining)
-- The request and grant phases are decoupled from the response phase
+1. Drives the target address on `addr`
+2. Sets `we = 1`
+3. Drives write data on `wdata`
+4. Drives the byte mask on `be`
+5. Asserts `req = 1`
+6. Keeps all request signals stable until `gnt`
 
-**Response Phase:**
-- The slave completes the write by asserting rvalid = 1
-- When rvalid = 1, the write operation has been completed successfully
-- The rdata bus is not used during write operations and should be ignored by the master
-- The be signal allows partial word writes; only bytes with be[i] = 1 are written to memory
-- Only one request can be outstanding at a time; the master must wait for rvalid before starting a new transaction
+**Acceptance phase:**
 
-**Byte Enable Examples:**
-- For a 32-bit data bus: be = 4'b1111 writes all 4 bytes
-- be = 4'b0001 writes only byte 0 (least significant byte)
-- be = 4'b1100 writes only bytes 2 and 3 (upper halfword)
+- The write is accepted when `req && gnt` is true.
+- At that point, the slave has accepted the address, control, and write data.
+
+**Completion phase:**
+
+- The slave later asserts `rvalid = 1` to indicate completion.
+- During a write response, `rdata` is not used and should be ignored.
+
+## Byte Enable Examples
+
+For a 32-bit data bus, `be` is typically 4 bits wide:
+
+- `4'b1111` writes all 4 bytes
+- `4'b0001` writes only byte 0
+- `4'b0011` writes the lower halfword
+- `4'b1100` writes the upper halfword
+
+## Practical Notes
+
+- OBI allows the request and response phases to be separated by any number of cycles.
+- A slave can throttle requests by keeping `gnt` low.
+- A slave can add response latency by delaying `rvalid`.
+- In this simplified usage model, responses return in order because only one request is outstanding.
+
+If you remember only one rule, remember this: **keep the request stable until grant, then wait for `rvalid` to know the transfer is finished.**
 
 ##### Copyright (c) 2026 squared-studio

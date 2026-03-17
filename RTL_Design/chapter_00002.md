@@ -60,6 +60,13 @@ This chapter revisits the essential building blocks of digital circuits, providi
     - Serial-in Serial-out (SISO), Serial-in Parallel-out (SIPO), Parallel-in Serial-out (PISO), Parallel-in Parallel-out (PIPO) shift registers.
     - Applications: Serial data communication, data delay, sequence generation.
 
+## Synchronous Design Mindset
+  - **Registers Define Time Boundaries:** In synchronous RTL, registers divide the design into clock-to-clock stages, with combinational logic between them.
+  - **Inputs are Sampled at Clock Edges:** For most synchronous systems, values become architecturally meaningful when captured by flip-flops on the active clock edge.
+  - **Combinational Logic Must Settle in Time:** The logic between two registers must produce a stable value early enough for reliable capture by the destination register.
+  - **Good RTL Matches This Model:** This is why `always_ff` is used for sequential behavior and `always_comb` or `assign` is used for combinational behavior.
+  - **Glitches Matter:** A circuit may settle to the right final value and still be unsafe if transient glitches feed asynchronous controls or cross into other clock domains.
+
 ## Timing Diagrams and Basic Timing Concepts
   - **Timing Diagrams:**
     - Graphical representation of signal values as a function of time.
@@ -67,10 +74,10 @@ This chapter revisits the essential building blocks of digital circuits, providi
     - Using timing diagrams to analyze circuit behavior and identify potential timing issues.
   - **Setup Time:**
     - Definition: The minimum time data must be stable *before* the active clock edge for reliable data capture by a flip-flop.
-    - Importance: Setup time violation leads to metastability and unpredictable behavior.
+    - Importance: A setup violation can cause incorrect capture and, in some cases, metastability.
   - **Hold Time:**
     - Definition: The minimum time data must be stable *after* the active clock edge to ensure reliable data capture.
-    - Importance: Hold time violation also leads to metastability.
+    - Importance: A hold violation can corrupt the sampled value and may also lead to metastability.
   - **Clock-to-Q Delay (t<sub>cq</sub> or clk-Q):**
     - Definition: The time delay from the active clock edge to when the output of a flip-flop (Q) becomes valid.
     - Impact on circuit speed: Clock-to-Q delay contributes to the overall propagation delay in sequential circuits.
@@ -80,6 +87,13 @@ This chapter revisits the essential building blocks of digital circuits, providi
   - **Clock Period and Frequency:**
     - Relationship between clock period and frequency (Frequency = 1/Period).
     - Determining the minimum clock period based on timing parameters (setup time, clock-to-Q delay, propagation delay).
+
+## Register-to-Register Timing Intuition
+  - **Setup Check:** A common timing model is `Tclk >= tcq + tcomb + tsetup + margin`. This expresses that launched data must traverse the combinational path and still arrive in time for capture.
+  - **Hold Check:** A simplified hold condition is `tcq(min) + tcomb(min) >= thold + skew`. This ensures data does not change too quickly after the receiving edge.
+  - **Critical Path:** The longest register-to-register combinational path usually limits the maximum clock frequency.
+  - **Short Paths Matter Too:** Designers often focus on setup timing, but very short paths can cause hold problems, especially after place-and-route.
+  - **Timing Closure Starts in RTL:** Balanced pipelines, sensible partitioning, and clean clock/reset strategies make downstream timing closure much easier.
 
 ## Learning Resources
 
@@ -143,6 +157,13 @@ This chapter revisits the essential building blocks of digital circuits, providi
     - Modulo-10 counter (BCD counter)
     - Simple finite state machine (e.g., sequence detector - covered in more detail in later chapters, but a basic example here is helpful)
   - **SystemVerilog Constructs:** Focus on using `always_ff` blocks with appropriate clock edge triggering for sequential logic. Experiment with different types of flip-flops (D, JK, SR if desired for practice).
+
+### Draw and explain a register-to-register timing path
+  - **Choose a Path:** Use a source flip-flop, a block of combinational logic, and a destination flip-flop.
+  - **Label Timing Terms:** Mark `t_cq`, combinational delay, setup time, and hold time on the diagram.
+  - **Show a Passing Case:** Draw a waveform where data launches and arrives in time for correct capture.
+  - **Show a Failing Case:** Draw either a setup violation or a hold violation and explain the failure mechanism.
+  - **Relate it Back to RTL:** Explain which SystemVerilog blocks describe the source register, combinational logic, and destination register.
 
 ##### Copyright (c) 2026 squared-studio
 

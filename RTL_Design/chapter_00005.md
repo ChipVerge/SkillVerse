@@ -75,6 +75,14 @@ This chapter introduces the fundamental concepts of memory design in digital sys
         * Configuration: Memory compilers allow specifying memory size, word size, number of ports, speed, power, and other parameters.
         * Integration: Generated memory instances are integrated into the ASIC design netlist.
 
+* **Practical RTL Considerations for Memories:**
+
+    * **Inference vs. Instantiation:** Small memories can often be inferred from synthesizable array-based RTL, while larger or feature-rich memories are commonly instantiated with vendor IP or technology macros.
+    * **Read-During-Write Behavior Matters:** Always define what should happen when the same location is read and written in the same cycle. Technologies differ in whether they behave as read-first, write-first, or no-change.
+    * **Synchronous Reads are Common in FPGAs:** Many FPGA block memories are synchronous, so read data often appears one clock later rather than changing immediately with the address.
+    * **Avoid Internal Tri-States:** Inside an FPGA or ASIC, it is usually better to hold the previous value, drive a defined value, or provide a separate valid signal instead of modeling an internal high-impedance output.
+    * **Initialization and Reset Need Care:** Large memories are usually not reset entry-by-entry in RTL. Prefer initialization files, power-up contents, or software-driven initialization when practical.
+
 * **Memory Controllers (Basic Concepts):**
 
     * **Purpose of Memory Controllers:** To manage the interface between a processor or other master device and memory devices (especially DRAM).
@@ -122,7 +130,7 @@ This chapter introduces the fundamental concepts of memory design in digital sys
 * **FPGA vendor documentation on embedded memory blocks (Block RAM - BRAM):**
 
     * **Search Query Suggestion:** Search for "Xilinx Block RAM," "Xilinx Memory Resources," "Intel on-chip memory," "Intel FPGA memory blocks," "Vivado Block Memory Generator," "Quartus Memory IP."
-    * **Vendor Documentation Websites:**  Go to the documentation sections of Xilinx ([Xilinx - Adaptable. Intelligent.](https://www.google.com/url?sa=E&source=gmail&q=https://www.xilinx.com/)) and Intel FPGA ([Intel FPGA Programmable Solutions](https://www.google.com/url?sa=E&source=gmail&q=https://www.intel.com/content/www/us/en/products/programmable.html)).
+    * **Vendor Documentation Websites:**  Go to the documentation sections of Xilinx ([Xilinx - Adaptable. Intelligent.](https://www.xilinx.com/)) and Intel FPGA ([Intel FPGA Programmable Solutions](https://www.intel.com/content/www/us/en/products/programmable.html)).
     * **User Guides and Application Notes:** Look for user guides, application notes, and IP core documentation related to Block RAM or on-chip memory for your target FPGA family.
     * **Key Information to Find:**
         * **BRAM Architecture:** Understand the structure of the BRAM blocks in the FPGA architecture.
@@ -159,7 +167,7 @@ This chapter introduces the fundamental concepts of memory design in digital sys
         * Inside the `always_ff` block, implement read and write logic based on `we` and `cs` signals.
         * For write operation (`we && cs` active), write `data_in` to `memory[addr]`.
         * For read operation (`!we && cs` active), output `memory[addr]` to `data_out` (register the output for synchronous behavior).
-        * When `cs` is inactive, `data_out` should typically be high-impedance or maintain its previous value.
+        * When `cs` is inactive, `data_out` should typically retain its previous value or be qualified with a valid/enable signal rather than using an internal high-impedance value.
     * **Parameterization:** Make the SRAM module parameterized for `DATA_WIDTH` (word size) and `DEPTH` (number of locations).
     * **Testbench:** Write a testbench to verify read and write operations, address range, and chip select functionality.
 

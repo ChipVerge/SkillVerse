@@ -174,6 +174,13 @@ This chapter introduces the critical domain of verification in RTL design. Verif
             end
             ```
 
+*   **Good First Testbench Habits:**
+    *   **Make Tests Self-Checking:** Prefer automatic checks over manual waveform inspection alone. A useful beginner testbench should end with a clear pass/fail result.
+    *   **Separate Stimulus from Checking:** Even in simple environments, it helps to keep input generation conceptually separate from output checking.
+    *   **Use Tasks for Repetition:** Repeated sequences such as reset, write, read, or compare steps become easier to maintain when wrapped in tasks.
+    *   **Test Normal Cases and Corner Cases:** Do not stop at a few easy examples. Include boundary values, reset behavior, idle cycles, and illegal or unexpected inputs where relevant.
+    *   **Keep Runs Reproducible:** If randomized stimulus is introduced later, log the seed so failures can be reproduced.
+
 *   **Simulation Flow and Debugging Techniques:**
     *   **Simulation Flow:**
         1.  **RTL Code Compilation:**  Compile the RTL design files and testbench files using a SystemVerilog simulator (e.g., QuestaSim, Incisive, VCS).
@@ -233,7 +240,7 @@ This chapter introduces the critical domain of verification in RTL design. Verif
     *   **Study Relevant Chapters:** Focus on chapters related to testbench basics, stimulus generation, response checking, and assertions.
 
 *   **Online tutorials and examples of SystemVerilog testbenches:**
-    *   **Search Query Suggestion:** Search for "SystemVerilog testbench tutorial," "SystemVerilog verification examples," "RTL verification basics," "SystemVerilog assertion tutorial," "UVM tutorial (for more advanced verification - optional for This chapter)."
+    *   **Search Query Suggestion:** Search for "SystemVerilog testbench tutorial," "SystemVerilog verification examples," "RTL verification basics," "SystemVerilog assertion tutorial," "UVM tutorial (for more advanced study)."
     *   **Online Verification Communities and Websites:** Look for websites and forums dedicated to hardware verification (e.g., Verification Academy, online EDA forums). These often have tutorials, articles, and code examples.
     *   **Vendor Websites:** FPGA and EDA tool vendors (Xilinx, Intel, Cadence, Mentor, Synopsys) often provide tutorials and application notes on verification methodologies and SystemVerilog testbench creation for their tools and technologies.
 

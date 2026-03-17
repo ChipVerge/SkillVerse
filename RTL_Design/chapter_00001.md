@@ -8,6 +8,13 @@ This chapter provides a foundational understanding of Register-Transfer Level (R
   - **Abstraction above Gate Level:** RTL is a higher level of abstraction than gate-level design. Instead of dealing with individual logic gates, RTL uses abstract constructs like registers, arithmetic operators, and control flow to represent the hardware's behavior.
   - **Behavioral Description:**  RTL code describes *what* the hardware does, not necessarily *how* it is implemented in gates. This allows for design exploration and optimization during synthesis.
 
+## How to Think at the RTL Level
+  - **Separate State from Logic:** A strong RTL description clearly distinguishes state-holding elements (registers, counters, memories) from combinational logic that computes next values.
+  - **Think in Clock Cycles:** Ask what values are sampled on this edge, what logic runs between edges, and what becomes visible on the next edge.
+  - **Model Datapath and Control Together:** Real designs combine datapath blocks (registers, ALUs, shifters, memories) with control logic (enables, selects, FSMs). RTL is where those views come together.
+  - **Describe Intent, Not Transistors:** The goal is to express behavior and structure that synthesis can map into gates, flip-flops, memories, and dedicated implementation resources.
+  - **Keep Hardware Cost in Mind:** Every register, multiplexer, comparator, and arithmetic operator has implications for area, timing, and power.
+
 ## Abstraction Levels in Digital Design:
   - **System Level:** Highest level, describes the overall system functionality and architecture, often using system-level languages or models (e.g., C++, SystemC). Focus is on system partitioning, algorithm design, and high-level performance analysis.
   - **Algorithmic Level:** Describes the algorithms and procedures that the hardware will execute.  May be represented using flowcharts or pseudocode. Bridges the gap between system-level specifications and hardware implementation.
@@ -33,6 +40,7 @@ This chapter provides a foundational understanding of Register-Transfer Level (R
   - **Design (RTL Coding):**
     - Writing SystemVerilog RTL: Translate the microarchitecture into synthesizable SystemVerilog code. This involves describing registers, combinational logic, state machines, and memory interfaces at the RTL level.
     - Coding Style and Best Practices:  Adhere to coding guidelines for readability, maintainability, and synthesis efficiency (covered in later chapters).
+    - Cycle-by-Cycle Behavior: Define how data moves every clock cycle, what conditions cause registers to update, and how control signals sequence the design over time.
   - **Verification:**
     - Functional Verification: Rigorously verify the RTL design to ensure it meets the functional specifications. This is a critical and often time-consuming step.
     - Simulation:  Primary verification method, using simulators to execute test cases and check design behavior.
@@ -54,6 +62,13 @@ This chapter provides a foundational understanding of Register-Transfer Level (R
     - FPGA Implementation Flow:  Includes steps like place and route, bitstream generation to configure the FPGA device. FPGA tools are typically provided by FPGA vendors (Xilinx Vivado, Intel Quartus Prime).
     - ASIC Implementation Flow: A more involved process including physical design, verification at the physical level, mask generation, and fabrication. ASIC implementation is typically done by specialized foundries.
     - Target Technology:  Implementation is specific to the target technology (FPGA family or ASIC technology node), which dictates available resources, performance characteristics, and design rules.
+
+## From Microarchitecture to RTL
+  - **Start with Interfaces:** Define clocks, resets, input/output signals, handshake behavior, and timing expectations before writing internal logic.
+  - **Partition the Design:** Break the block into modules such as control, datapath, FIFOs, register files, or protocol adapters.
+  - **Define State Elements Explicitly:** Identify which values must persist across cycles. These become registers, RAMs, counters, or FSM state variables.
+  - **Write Next-State / Next-Data Logic:** Describe the combinational decisions that determine what each state element should capture on the next active clock edge.
+  - **Review for Synthesizability:** Confirm that each construct maps cleanly to hardware and that the implementation matches the intended timing behavior.
 
 ## Learning Resources
 
@@ -79,13 +94,20 @@ This chapter provides a foundational understanding of Register-Transfer Level (R
     - **Boolean Algebra:** Laws and theorems of Boolean algebra (De Morgan's laws, distributive law, associative law, etc.) for logic simplification and manipulation.
     - **Combinational Logic:**  Design and analysis of circuits where outputs are solely determined by current inputs (e.g., multiplexers, decoders, adders).
     - **Sequential Logic:**  Basic understanding of memory elements like latches and flip-flops, and circuits whose outputs depend on past and present inputs (e.g., registers, counters).
-  - **Resources for Review:** Use online resources like Khan Academy ([https://www.khanacademy.org/computing/computer-science/digital-information](https://www.google.com/search?q=https://www.khanacademy.org/computing/computer-science/digital-information)), digital logic design textbooks, or online tutorials to refresh these concepts.
+  - **Resources for Review:** Use online resources like Khan Academy ([Digital Information | Khan Academy](https://www.khanacademy.org/computing/computer-science/digital-information)), digital logic design textbooks, or online tutorials to refresh these concepts.
 
 ### Identify RTL blocks in simple digital systems (e.g., a basic CPU block diagram)
   - **Obtain a Block Diagram:** Find a block diagram of a simple digital system, such as a basic CPU, a microcontroller, or a communication interface (easily found online by searching "basic CPU block diagram," "microcontroller architecture diagram," etc.).
   - **Identify Registers:** Look for blocks labeled as "Registers," "Program Counter (PC)," "Accumulator," "Memory Address Register (MAR)," "Memory Data Register (MDR)," "Instruction Register (IR)," or similar terms that clearly indicate storage elements.
   - **Identify Data Paths and Operations:** Trace the arrows representing data flow between registers. Identify functional blocks like "ALU (Arithmetic Logic Unit)," "Adder," "Multiplier," "Shifter," "Memory Interface," "Control Unit." These blocks represent operations performed on data as it moves between registers.
   - **Recognize RTL Representation:** Understand that the registers and the data paths connecting them, along with the functional blocks performing operations, are the core components represented in RTL design. The block diagram provides a visual, higher-level representation of what would be described in detail using RTL code.
+
+### Convert a simple behavior into cycle-based RTL steps
+  - **Choose a Small Function:** For example, a load-enabled counter, a shift register, or a valid/ready pipeline stage.
+  - **List the State:** Identify what information must be remembered across cycles.
+  - **List the Inputs and Outputs:** Include control inputs such as `enable`, `valid`, `ready`, or `reset`.
+  - **Describe Each Clock Edge:** Write down what happens on each active edge for normal operation, idle behavior, and reset.
+  - **Map the Description to RTL Constructs:** Decide which parts belong in `always_ff`, which belong in `always_comb`, and which can be expressed with `assign` statements.
 
 ##### Copyright (c) 2026 squared-studio
 
