@@ -90,5 +90,5 @@ clean:
     rm -f program $(OBJ)
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

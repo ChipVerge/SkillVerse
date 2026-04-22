@@ -264,4 +264,4 @@ Test your understanding of SystemVerilog arrays with these exercises. Solutions 
 
 By mastering SystemVerilog arrays and their various types, you equip yourself with powerful tools for managing data in both your hardware designs and verification environments. Experiment with these exercises and explore the extensive capabilities of SystemVerilog arrays to enhance your digital design and verification skills.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge

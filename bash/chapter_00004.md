@@ -304,5 +304,5 @@ This enhanced exercise and solution demonstrate best practices for writing Bash 
 *   **Confusing Script Parameters and Function Parameters**:  Be clear about the difference between script command-line arguments (`$1`, `$2`, etc. outside functions) and function parameters (`$1`, `$2`, etc. *inside* functions).  `$#` also behaves differently inside and outside functions (number of script arguments vs. number of function arguments). Be mindful of the scope.
 *   **Over-reliance on Global Variables**: While global variables are accessible everywhere in your script, excessive use of global variables can make your code harder to understand and maintain.  Favor passing data to functions as arguments and returning values from functions, rather than relying heavily on global variables for data sharing.  This promotes better encapsulation and reduces the risk of unintended side effects.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

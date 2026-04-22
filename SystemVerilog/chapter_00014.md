@@ -476,5 +476,5 @@ To maximize the benefits of SystemVerilog randomization and CRV, follow these be
 
 These exercises provide a practical introduction to using SystemVerilog randomization for verification, covering various aspects from basic random variable generation to advanced constraints, error injection, and coverage-driven verification methodologies. By completing these exercises, you will gain hands-on experience in leveraging randomization to create effective and efficient verification environments.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

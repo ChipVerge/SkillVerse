@@ -59,5 +59,5 @@ PS1='\u@\h:\w$ '
 ## Prep for Next Chapter
 - Generate or locate your SSH keys and think about common remote hosts you access.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

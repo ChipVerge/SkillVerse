@@ -232,4 +232,4 @@ By making these best practices a habit, you're not just _using_ Git—you're _ma
 
 **Remember**: Git is your coding ally. Treat it well, keep learning, and it will be your steadfast partner in every project journey.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge

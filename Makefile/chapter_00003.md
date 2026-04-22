@@ -73,5 +73,5 @@ clean:
     rm -f program main.o utils.o
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

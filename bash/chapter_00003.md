@@ -386,5 +386,5 @@ exit 0
 *   **Missing Spaces in `[ $a -eq $b ]`**:  As mentioned earlier, remember that `[` is a command, and it requires spaces around its arguments and operators.  `[ $a -eq $b ]` is correct, but `[$a -eq $b]` or `[ $a-eq $b ]` will result in syntax errors because Bash will not recognize them as valid commands with properly separated arguments.
 *   **Confusing String and Numeric Operators**:  Be mindful of using the correct operators for string and numeric comparisons.  Using numeric operators (like `-eq`, `-gt`) for strings or string operators (like `==`, `<`) for numbers can lead to incorrect comparisons and logic errors.  Always use `-eq`, `-ne`, `-lt`, `-gt`, `-le`, `-ge` for numerical comparisons within `[ ... ]` and `[[ ... ]]`. Use `==`, `!=`, `<`, `>` for string comparisons within `[[ ... ]]`.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

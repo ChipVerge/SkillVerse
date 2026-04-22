@@ -280,5 +280,5 @@ endmodule
 
 By working through these exercises and carefully considering the best practices, you will develop a strong foundation in using SystemVerilog procedural blocks effectively for both RTL design and verification.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

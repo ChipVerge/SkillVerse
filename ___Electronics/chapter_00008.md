@@ -358,5 +358,5 @@ MOSFETs are the dominant transistor technology and are virtually omnipresent in 
 
 Metal-Oxide-Semiconductor Field-Effect Transistors (MOSFETs) are undeniably the **workhorse of modern electronics.** Their unique combination of voltage-controlled operation, high input impedance, scalability, energy efficiency, and versatility has cemented their position as the **dominant transistor technology.** From the intricate logic of microprocessors to the efficient power management in portable devices and the amplification of faint radio signals, MOSFETs are the invisible engines driving the functionality of countless electronic systems that shape our digital world.  A solid understanding of MOSFET operation, characteristics, and circuit configurations is **fundamental for anyone engaged in electronics**, whether in circuit design, semiconductor device engineering, or any field leveraging the power of modern electronics.  Continued advancements in MOSFET technology remain at the forefront of semiconductor innovation, constantly pushing the boundaries of computing, communication, and countless other electronic applications, promising even more powerful and efficient electronic systems in the future.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

@@ -3970,5 +3970,5 @@ This example is functionally very similar to the `$dump` example, but it uses th
 In practice, you would typically choose either the `$dump` tasks or the `$dumpports` tasks based on your simulator's recommendations and your specific needs for dumping granularity and performance.
 
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

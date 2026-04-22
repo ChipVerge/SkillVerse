@@ -146,5 +146,5 @@ This chapter delves into the critical aspects of clocking and reset in synchrono
         - Visualize the latency introduced by the synchronizer and how it reduces the probability of metastability.
     *   **Analysis:** Analyze the timing diagrams to understand the behavior of synchronous and asynchronous resets, and the operation of a basic CDC synchronizer. Identify potential timing issues and how they are addressed by synchronous design principles and synchronization techniques.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

@@ -66,5 +66,5 @@ nohup ./server >server.log 2>&1 &
 ## Prep for Next Chapter
 - Gather a few repetitive tasks you wish to automate; you'll script them next.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

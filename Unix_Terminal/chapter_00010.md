@@ -71,5 +71,5 @@ echo "Wrote $archive"
 - Learn `make` to orchestrate tasks, and deepen git CLI skills.
 - Explore container CLIs (Docker/Podman) and advanced shells (zsh/fish) for productivity.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

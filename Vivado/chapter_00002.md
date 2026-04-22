@@ -53,5 +53,5 @@ Before installing Vivado, ensure that your system meets the following requiremen
 
 By following these steps, you will have Vivado installed and ready to use on your system. You can now proceed to create and manage your FPGA and SoC designs using the powerful tools provided by Vivado.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

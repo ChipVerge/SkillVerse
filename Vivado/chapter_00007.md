@@ -24,5 +24,5 @@ In this chapter, we will cover the steps to generate a bitstream file from your 
 
 By following these steps, you can generate a bitstream file from your implemented design and program your FPGA using Vivado.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

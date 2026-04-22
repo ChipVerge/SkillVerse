@@ -195,5 +195,5 @@ This chapter focuses on Finite State Machines (FSMs), a fundamental concept in d
     *   **Compare Synthesis Reports:** Compare the synthesis reports for area (number of flip-flops, LUTs) and timing (critical path delay) for both implementations.
     *   **Analyze Results:** Discuss the trade-offs between binary and one-hot encoding in terms of area and performance for the specific FSM design. Observe how state encoding choices can impact implementation characteristics.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

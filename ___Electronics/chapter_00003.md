@@ -399,5 +399,5 @@ Inductors are fundamental components in a vast range of electronic circuits and 
 
 This detailed overview of inductors highlights their fundamental principles, diverse types, key parameters, and extensive applications. Inductors are versatile and essential components in modern electronics, enabling a wide range of functionalities from basic filtering to advanced energy conversion and sensing. Continuous advancements in inductor technology focus on improving performance, miniaturization, efficiency, and expanding their applications in emerging fields. Understanding the characteristics and applications of inductors is essential for designing efficient and reliable electronic circuits across various industries and disciplines.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

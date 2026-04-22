@@ -161,5 +161,5 @@ This chapter provides an introduction to several advanced and specialized topics
     *   **Research DFT Tools and Flows (Optional):**  If you have access to EDA tools with DFT capabilities, you can explore the tool documentation and tutorials to learn about automated scan insertion and BIST insertion flows.  You could try to run a basic DFT insertion flow on your small module using the tool (if tools and licenses are available).
     *   **Report:**  Summarize your exploration of DFT concepts and your conceptual design for scan insertion and/or BIST for the chosen module. Discuss the benefits and overheads of DFT.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

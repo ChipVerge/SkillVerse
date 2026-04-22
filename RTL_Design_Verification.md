@@ -23,5 +23,5 @@
 ## 8. [Verification Project and Advanced Verification Topics](RTL_Design_Verification/chapter_00008.md)
   - Learning Resources
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

@@ -145,5 +145,5 @@ This chapter introduces pipelining, a crucial technique in digital design for en
         - Structural Hazards: Resource duplication, pipeline stage rescheduling.
     *   **Implement Hazard Resolution (Optional):**  As an extension, the trainee engineer can implement the suggested hazard resolution techniques (e.g., forwarding logic, stall control) in the RTL code and verify that the hazards are resolved through simulation.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

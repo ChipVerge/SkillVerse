@@ -260,5 +260,5 @@ Crystals are fundamental components in a vast array of electronic systems, enabl
 
 Piezoelectric crystals are truly indispensable components in the world of electronics, providing a cornerstone for precise frequency control and timing. Their remarkable ability to convert mechanical motion to electrical signals and vice versa, characterized by the piezoelectric effect and modeled by sophisticated equivalent circuits, makes them uniquely suited for oscillators, filters, and a multitude of timing-critical applications. Understanding the fundamental principles of piezoelectricity and the key characteristics of crystals is essential for anyone involved in the design, development, and application of modern electronic systems. From the simplest clock circuits to the most complex communication and instrumentation systems, crystals remain the unsung heroes ensuring accuracy, stability, and reliable operation.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

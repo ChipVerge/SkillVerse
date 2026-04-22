@@ -36,5 +36,5 @@ route_design -directive Performance_Explore
 
 By following these steps, you can implement your RTL design using Vivado and analyze the results to ensure your design meets the required specifications.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

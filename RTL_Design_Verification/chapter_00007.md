@@ -262,5 +262,5 @@ This chapter focuses on essential verification skills: debugging and coverage an
     *   **Test Regression Flow:**  Run your regression script to execute the entire regression suite. Verify that the script correctly compiles, runs tests, collects results, and generates a summary report.
     *   **Version Control (Optional):**  If you are using version control (e.g., Git), add your regression script and test suite to your repository to track them along with your design and testbench code.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

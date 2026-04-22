@@ -31,5 +31,5 @@ FSMs are models of computation used to design both computer programs and sequent
   - **Mealy Machine**: Outputs depend on both the current state and the inputs.
   - **Moore Machine**: Outputs depend only on the current state.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

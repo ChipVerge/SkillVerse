@@ -66,5 +66,5 @@ Stretch: Save it as `~/bin/whoami-tty` (make sure `~/bin` is on PATH) and make i
 - Practice absolute vs. relative paths with `pwd` and `cd`.
 - Enable tab completion in your shell if not already on (typically default). 
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

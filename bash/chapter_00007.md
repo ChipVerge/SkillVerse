@@ -389,5 +389,5 @@ trap - ERR
 *   **Redundant Exit Status Check (Optional):** The `if [ $? -eq 0 ]` block after `mkdir` is technically redundant in this specific example because the `trap ERR` already handles and exits on `mkdir` failure. However, in more complex scenarios where you might want to perform additional actions after a potential error but still exit, you might keep such checks.
 *   **Removing the Trap (Optional):** `trap - ERR` removes the `ERR` trap after the directory creation. Whether you remove traps depends on your script's logic. If you want error handling for the rest of the script, you would typically leave the trap in place.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

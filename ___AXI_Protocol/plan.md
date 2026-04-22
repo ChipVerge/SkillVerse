@@ -51,5 +51,5 @@
 - Online Tutorials and Courses
 - Relevant Research Papers and Articles
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

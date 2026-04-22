@@ -256,5 +256,5 @@ LEDs have become indispensable components across a vast spectrum of applications
 
 This comprehensive overview of Light Emitting Diodes (LEDs) highlights their fundamental principles, diverse types, key parameters, and wide-ranging applications. LEDs continue to advance rapidly, with ongoing research and development focused on improving efficiency, light output, color quality, and cost-effectiveness.  Their versatility, energy efficiency, and long lifespan ensure that LEDs will remain a dominant and transformative lighting and optoelectronic technology for the foreseeable future. Understanding the principles and applications of LEDs equips engineers, designers, hobbyists, and enthusiasts with the knowledge to harness the power of light-emitting diodes in innovative and impactful ways. Explore the world of LEDs, illuminate your projects, and brighten the future with the brilliance of Light Emitting Diodes.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

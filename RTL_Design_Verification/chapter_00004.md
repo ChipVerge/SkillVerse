@@ -248,5 +248,5 @@ This chapter introduces the Universal Verification Methodology (UVM), the indust
     *   **Run Simulations and Observe Reports:**  Run simulations and observe the UVM reports generated in the simulation output. Experiment with different severity levels and observe how they are reported.
     *   **Explore Report Filtering (Optional):**  If your simulator supports it, explore UVM report filtering mechanisms to filter reports based on severity level or component.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

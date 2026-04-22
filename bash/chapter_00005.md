@@ -135,5 +135,5 @@ echo "Contents of $filename:"
 nl -ba "$filename"
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

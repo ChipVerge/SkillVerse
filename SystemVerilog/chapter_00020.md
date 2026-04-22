@@ -485,5 +485,5 @@ endmodule : data_bus_coverage_example
 ```
 
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

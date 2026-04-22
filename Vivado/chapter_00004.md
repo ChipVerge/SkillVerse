@@ -39,5 +39,5 @@ In this chapter, we will walk through the steps to simulate a simple RTL (Regist
 
 By following these steps, you can simulate and verify your RTL design using the Vivado GUI. Simulation helps you catch and fix issues early in the design process, ensuring a smoother implementation on hardware.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

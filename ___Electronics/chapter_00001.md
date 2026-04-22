@@ -196,5 +196,5 @@ Resistors are truly ubiquitous in electronics, performing essential functions in
 
 Resistors, despite their simplicity, are truly the workhorses of electronics. Their ability to control current and voltage makes them indispensable components in shaping the behavior of electronic circuits, from the simplest to the most complex.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

@@ -73,5 +73,5 @@ Stretch: Filter only status 500 lines before counting: `awk '$9==500 {print $1}'
 ## Prep for Next Chapter
 - Keep a sample log and CSV handy; you'll need them while managing processes and automation.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

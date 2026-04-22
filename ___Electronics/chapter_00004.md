@@ -272,5 +272,5 @@ Diodes are fundamental and ubiquitous components in countless electronic circuit
 
 This comprehensive overview of diodes highlights their fundamental characteristics, diverse types, and wide-ranging applications. Diodes are essential components in modern electronics, and understanding their principles and behavior is crucial for anyone working in electronics, electrical engineering, and related fields. Continuous advancements in diode technology are leading to improved performance, efficiency, and new applications in emerging areas. By mastering the principles and applications of diodes, engineers and enthusiasts can design innovative circuits, systems, and devices that leverage the unique properties of these semiconductor devices.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

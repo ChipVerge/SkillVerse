@@ -292,5 +292,5 @@ This chapter introduces the critical domain of verification in RTL design. Verif
     *   **Observe Assertion Results:**  Check the simulation log for assertion failures. If assertions fail, debug the design or assertions to understand the cause of failure.
     *   **Experiment with Assertion Failures:**  Intentionally violate a design property to see how assertions detect the violation and report errors.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

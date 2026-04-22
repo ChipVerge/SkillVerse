@@ -71,5 +71,5 @@ umask
 ## Prep for Next Chapter
 - Keep a few sample files ready for experimenting with redirection, pipes, and text processing.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

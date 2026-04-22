@@ -442,5 +442,5 @@ module feature_conditional_compilation;
 endmodule
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

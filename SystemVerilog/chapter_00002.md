@@ -197,5 +197,5 @@ In the provided basic testbench example:
 
 This fundamental structure forms the basis for constructing more complex and comprehensive SystemVerilog testbenches.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

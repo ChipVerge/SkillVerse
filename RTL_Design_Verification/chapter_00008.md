@@ -118,5 +118,5 @@ This chapter culminates the course with a comprehensive verification project tha
     *   **Regression Test Suite Setup:**  Establish a regression test suite with a collection of test cases and automated test execution scripts.
     *   **Final Verification Report Submission:**  Submit a comprehensive verification report documenting your project, including the verification plan, testbench details, sequence library description, coverage analysis results, assertion coverage, regression test results, bug report summary (if any), and lessons learned. The report should demonstrate a thorough application of UVM, constrained-random stimulus, functional coverage, and assertion-based verification techniques to the chosen RTL module.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

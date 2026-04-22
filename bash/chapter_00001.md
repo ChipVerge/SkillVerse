@@ -134,5 +134,5 @@ If you see "Hello, World!" printed in your terminal, congratulations! You've suc
 
 *   **Hint:** Bash has a built-in variable called `$USER` that automatically stores your username.  Try using this variable within your `echo` command to personalize the greeting.  For example, you could try something like `echo "Hello, $USER!"`.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

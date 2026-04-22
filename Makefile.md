@@ -42,5 +42,5 @@
   - Case Studies and Real-world Examples
   - Simple Exercise
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

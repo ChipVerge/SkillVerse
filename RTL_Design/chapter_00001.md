@@ -109,5 +109,5 @@ This chapter provides a foundational understanding of Register-Transfer Level (R
   - **Describe Each Clock Edge:** Write down what happens on each active edge for normal operation, idle behavior, and reset.
   - **Map the Description to RTL Constructs:** Decide which parts belong in `always_ff`, which belong in `always_comb`, and which can be expressed with `assign` statements.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

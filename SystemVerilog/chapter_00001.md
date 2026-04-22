@@ -75,5 +75,5 @@ SystemVerilog's richness lies in its extensive set of features, making it a powe
 
 By leveraging these features, SystemVerilog empowers hardware engineers to design and verify increasingly sophisticated digital systems with greater efficiency, reliability, and confidence.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

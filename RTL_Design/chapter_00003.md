@@ -336,5 +336,5 @@ This chapter is crucial for learning how to write effective Register-Transfer Le
         - Timing (critical path delay, maximum frequency).
     *   **Analyze Results:**  Discuss and compare the synthesis results for different coding styles. Observe how coding style can impact area and performance. Understand that there is often a trade-off and the "best" style might depend on specific design goals and tool optimizations.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

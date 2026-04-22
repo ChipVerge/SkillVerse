@@ -25,5 +25,5 @@ PSL is another language for specifying properties of digital designs. It is simi
 - **Verification Directives**: Instructions for the verification tool.
   - **Example**: assume property (a); // Assumes a is always true during verification.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

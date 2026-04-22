@@ -227,5 +227,5 @@ endmodule
 
 By practicing with these exercises and understanding the nuances of each control flow statement, you'll gain the proficiency to write effective and well-structured SystemVerilog code for a wide range of hardware design and verification tasks.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

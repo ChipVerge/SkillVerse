@@ -265,5 +265,5 @@ endmodule
 -   **Choosing the Right IPC Mechanism**: Select the IPC mechanism that best suits the communication and synchronization needs of your processes. Use mailboxes for data exchange, semaphores for resource access control, and events for simple synchronization signaling. Avoid using a more complex mechanism than necessary for the task at hand.
 -   **Clear Naming Conventions**: Use descriptive names for mailboxes, semaphores, and events that clearly indicate their purpose and the type of data or resource they are managing. This improves code readability and understanding of the IPC mechanisms in your design or testbench.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

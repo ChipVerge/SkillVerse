@@ -69,5 +69,5 @@ locate bin/python | head
 ## Prep for Next Chapter
 - Keep the `~/nav_play` tree for practicing file creation, copying, and permissions.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

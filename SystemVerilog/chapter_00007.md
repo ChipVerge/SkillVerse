@@ -279,5 +279,5 @@ endmodule
 
 Mastering SystemVerilog operators is essential for any hardware designer or verification engineer. By understanding their functionality, hardware implications, and nuances like precedence and X/Z handling, you can write efficient, accurate, and synthesizable SystemVerilog code.  Practice with the exercises and always prioritize clarity and correctness by using parentheses and choosing the right operators for the task at hand.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

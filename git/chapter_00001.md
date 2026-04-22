@@ -193,4 +193,4 @@ git config --global user.email "your.email@example.com"
   - **Git Official Documentation**: The comprehensive and authoritative guide to Git features and commands. [Git Documentation](https://git-scm.com/doc)
   - **Learn Git Branching**: An interactive, browser-based tutorial that makes learning Git branching concepts engaging and visual. [Learn Git Branching](https://learngitbranching.js.org/)
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge

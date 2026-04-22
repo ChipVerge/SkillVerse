@@ -297,5 +297,5 @@ exit 0 # Exit with success code 0
 *   **Variable Assignment vs. Arithmetic**:  Be careful with variable assignment and arithmetic.  `var=5+2`  assigns the *string* `"5+2"` to `var`, not the number 7.  To perform arithmetic, always use `$(( ... ))`: `var=$((5+2))`.
 *   **Unquoted Variables and `rm` (Danger!)**:  Never use unquoted variables with commands like `rm`, `mv`, or `cp` if there's any chance the variable might contain spaces or special characters.  For example, if `$file` is unquoted and contains `"file1 file2"`,  `rm $file` will be interpreted as `rm file1 file2`, deleting both `file1` and `file2`!  **Always quote variables in commands: `rm "$file"`**.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

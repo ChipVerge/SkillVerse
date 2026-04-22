@@ -269,5 +269,5 @@ This chapter introduces Assertion-Based Verification (ABV), a powerful verificat
     *   **Refine Test Cases or Constraints (if using CRV):**  Based on coverage analysis, refine your test cases or constraints in your UVM testbench to improve assertion coverage. Target assertions with low attempt counts by creating scenarios that exercise the conditions they are checking.
     *   **Re-run Simulations and Re-analyze Coverage:** Re-run simulations with the refined testbench and generate new assertion coverage reports. Check if assertion coverage has improved.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

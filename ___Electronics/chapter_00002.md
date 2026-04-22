@@ -212,5 +212,5 @@ Capacitors are indispensable components with a vast range of applications in vir
 
 Capacitors, in their diverse forms and applications, are truly essential components in the vast landscape of electronics. Their ability to store energy, block DC, pass AC, and interact with frequency and time makes them indispensable tools for shaping, controlling, and enabling the functionality of electronic circuits and systems that underpin modern technology.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

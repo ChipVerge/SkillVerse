@@ -368,5 +368,5 @@ endmodule
 
 By mastering tasks and functions and practicing with these exercises, you will be well-equipped to write modular, reusable, and efficient SystemVerilog code for complex hardware designs and sophisticated verification environments.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

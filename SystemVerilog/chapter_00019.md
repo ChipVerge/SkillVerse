@@ -572,5 +572,5 @@ module packet_protocol_checker(
 endmodule : packet_protocol_checker
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

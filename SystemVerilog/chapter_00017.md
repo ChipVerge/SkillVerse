@@ -341,5 +341,5 @@ module test_case_selector;
 endmodule
 ```
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

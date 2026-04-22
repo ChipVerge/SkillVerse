@@ -165,5 +165,5 @@ This chapter revisits the essential building blocks of digital circuits, providi
   - **Show a Failing Case:** Draw either a setup violation or a hold violation and explain the failure mechanism.
   - **Relate it Back to RTL:** Explain which SystemVerilog blocks describe the source register, combinational logic, and destination register.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

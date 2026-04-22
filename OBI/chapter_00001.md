@@ -158,4 +158,4 @@ For a 32-bit data bus, `be` is typically 4 bits wide:
 
 If you remember only one rule, remember this: **keep the request stable until grant, then wait for `rvalid` to know the transfer is finished.**
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge

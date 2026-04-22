@@ -28,5 +28,5 @@ Open-source tools are freely available and can be used for learning and small pr
   - **Features**: Supports property checking and model checking.
   - **Example**: Using CoSA to verify the correctness of a combinational logic circuit by writing properties and running checks.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

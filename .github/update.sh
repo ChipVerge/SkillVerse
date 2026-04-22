@@ -47,13 +47,13 @@ list=$(find -type f -name "*.md")
 
 for file in ${list} ; do
   # Check if the file already contains a copyright notice
-  if grep -Eq "Copyright \(c\) [0-9]{4} squared-studio" $file ; then
+  if grep -Eq "Copyright \(c\) [0-9]{4} ChipVerge" $file ; then
     # Update the existing copyright notice with the current year
-    sed -i "s/.*Copyright (c) [0-9]\{4\} squared-studio.*/##### Copyright (c) $(date +%Y) squared-studio/g" $file
+    sed -i "s/.*Copyright (c) [0-9]\{4\} ChipVerge.*/##### Copyright (c) $(date +%Y) ChipVerge/g" $file
   else
     # Add a new copyright notice if not present
     echo "" >> $file
-    echo "##### Copyright (c) $(date +%Y) squared-studio" >> $file
+    echo "##### Copyright (c) $(date +%Y) ChipVerge" >> $file
     echo "" >> $file
   fi
 done

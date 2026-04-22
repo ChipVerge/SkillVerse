@@ -220,5 +220,5 @@ This chapter introduces the crucial steps of synthesis and implementation in the
         * **Power Report (if available):**  Estimate of power consumption after implementation.
     * **Device View (Optional):**  Explore the device view in the FPGA tool to visualize how the design is placed and routed on the FPGA fabric (if the tool offers such a view).
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

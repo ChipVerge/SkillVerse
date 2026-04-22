@@ -106,5 +106,5 @@ While the syntax is standard GNU LD, for `riscv-unknown-elf-gcc`, especially in 
 * **ABI Compliance**: While not strictly a linker script *syntax* issue, the linker script helps ensure the final layout is compatible with the chosen RISC-V ABI (e.g., `ilp32`, `lp64`).
 * **Linker Relaxation**: RISC-V linkers can perform "relaxations," optimizing certain instruction sequences. This doesn't usually change the script syntax but is a feature of the RISC-V linking process.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

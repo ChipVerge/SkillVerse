@@ -38,5 +38,5 @@ In this chapter, we will explore how to use the IP Catalog in Vivado to integrat
 
 By following these steps, you can efficiently integrate IP cores from the Vivado IP Catalog into your design, leveraging pre-built components to accelerate your development process.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

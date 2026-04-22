@@ -25,5 +25,5 @@ Writing properties is a crucial part of formal verification. Properties describe
   - **Example**: assert property (eventually (done)); // Checks that the done signal is eventually asserted.
     - **Explanation**: This property ensures that the 'done' signal is eventually asserted, indicating that the design completes its intended operation.
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 

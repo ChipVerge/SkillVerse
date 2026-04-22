@@ -217,5 +217,5 @@ sudo apt-get -y install vim
 
 Source: http://www.keyxl.com/aaa8263/290/VIM-keyboard-shortcuts.htm
 
-##### Copyright (c) 2026 squared-studio
+##### Copyright (c) 2026 ChipVerge
 
