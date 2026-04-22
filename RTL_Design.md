@@ -1,16 +1,20 @@
 # RTL Design
 ## 1. [Introduction to RTL Design](RTL_Design/chapter_00001.md)
   - What is RTL (Register-Transfer Level) Design?
+  - How to Think at the RTL Level
   - Abstraction Levels in Digital Design
   - Importance of RTL Design in ASIC and FPGA Development
   - RTL Design Flow
   - Introduction to Synthesis and FPGA/ASIC Implementation
+  - From Microarchitecture to RTL
   - Learning Resources
   - Exercises
 ## 2. [Digital Design Fundamentals Review](RTL_Design/chapter_00002.md)
   - Combinational Logic
   - Sequential Logic
+  - Synchronous Design Mindset
   - Timing Diagrams and Basic Timing Concepts
+  - Register-to-Register Timing Intuition
   - Learning Resources
   - Exercises
 ## 3. [RTL Coding Styles and Best Practices](RTL_Design/chapter_00003.md)
